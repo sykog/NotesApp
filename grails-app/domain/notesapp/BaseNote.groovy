@@ -3,10 +3,10 @@ package notesapp
 abstract class BaseNote {
 
     String content
-    Date datetime
+    Date dateCreated
+    Date lastUpdated
 
     static constraints = {
         content nullable:false
-        datetime (nullable:false, default: new Date())
     }
 }

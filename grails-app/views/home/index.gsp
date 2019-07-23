@@ -13,12 +13,10 @@
             <h4>${flash.message}</h4>
         </g:if>
 
-        <p>There are ${vehicleTotal} vehicles in the database.</p>
-
-        <ul><g:each in="${vehicles}" var="vehicle">
+        <ul><g:each in="${notes}" var="note">
             <li>
-                <g:link controller="vehicle" action="show" id="${vehicle.id}">
-                    ${vehicle.class} - ${vehicle.content}
+                <g:link controller="vehicle" action="show" id="${note.id}">
+                    ${note.class} - ${note.content}
                 </g:link>
             </li>
         </g:each></ul>

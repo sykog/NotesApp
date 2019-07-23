@@ -4,8 +4,7 @@ class HomeController {
 
     def index() {
         respond([
-                vehicles: BaseNote.list(),
-                vehicleTotal: BaseNote.count()
+                notes: BaseNote.list()
         ])
     }
 }

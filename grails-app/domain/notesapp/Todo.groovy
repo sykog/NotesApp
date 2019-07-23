@@ -5,6 +5,6 @@ class Todo extends BaseNote {
     Boolean complete
 
     static constraints = {
-        complete (nullable: false, default: false)
+        complete nullable: false
     }
 }
