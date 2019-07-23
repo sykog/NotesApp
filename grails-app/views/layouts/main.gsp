@@ -8,6 +8,8 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <asset:stylesheet src="bootstrap.css"/>
+
     <g:layoutHead/>
 </head>
 
@@ -15,9 +17,13 @@
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/#">
-                Auto Catalog
-            </a>
+            <a class="navbar-brand" href="/create">Add Note</a>
+            <a class="navbar-brand" href="/notes">All Notes</a>
+            <a class="navbar-brand" href="/generic">Notes</a>
+            <a class="navbar-brand" href="/todos">To-Do</a>
+            <a class="navbar-brand" href="/quotes">Quotes</a>
+            <a class="navbar-brand" href="/code">Code</a>
+            <a class="navbar-brand" href="/sites">Website</a>
         </div>
         <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
             <ul class="nav navbar-nav navbar-right">

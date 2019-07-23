@@ -4,7 +4,7 @@ class HomeController {
 
     def index() {
         respond([
-                notes: BaseNote.list()
+            notes: BaseNote.list()
         ])
     }
 }

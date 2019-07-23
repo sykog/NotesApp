@@ -15,7 +15,7 @@
 
         <ul><g:each in="${notes}" var="note">
             <li>
-                <g:link controller="vehicle" action="show" id="${note.id}">
+                <g:link controller="baseNote" action="show" id="${note.id}">
                     ${note.class} - ${note.content}
                 </g:link>
             </li>
