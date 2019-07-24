@@ -11,9 +11,10 @@ class NotesController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        def notes = Note.list()
+        def notes = noteService.getNotesByType('codeblock')
+        def allNotes = noteService.getAllNotes()
         respond([
-            notes: BaseNote.list()
+            notes: allNotes
         ])
     }
 

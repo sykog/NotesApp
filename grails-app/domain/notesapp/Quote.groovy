@@ -2,9 +2,9 @@ package notesapp
 
 class Quote extends BaseNote {
 
-    String source
+    String additional
 
     static constraints = {
-        source nullable: false
+        additional nullable: false
     }
 }

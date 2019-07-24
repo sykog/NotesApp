@@ -1,18 +1,28 @@
 package notesapp
 
-import grails.gorm.services.Service
+import org.codehaus.groovy.reflection.stdclasses.ArrayCachedClass
 
-@Service(BaseNote)
-interface NoteService {
+class NoteService {
 
-    BaseNote get(Serializable id)
+    ArrayList<BaseNote> getAllNotes() {
+        return BaseNote.listOrderByLastUpdated()
+    }
 
-    List<BaseNote> list(Map args)
+    ArrayList<BaseNote> getNotesByType(String noteType) {
+        switch (noteType) {
+            case 'bookmark': return Bookmark.listOrderByLastUpdated()
+                break
+            case 'codeblock': return Codeblock.listOrderByLastUpdated()
+                break
+            case 'quote': return Quote.listOrderByLastUpdated()
+                break
+            case 'todo': return Todo.listOrderByLastUpdated()
+                break
+            default: return Note.listOrderByLastUpdated()
+        }
+    }
 
-    Long count()
-
-    void delete(Serializable id)
-
-    BaseNote save(BaseNote baseNote)
-
+    BaseNote getById(Serializable id) {
+        return null
+    }
 }

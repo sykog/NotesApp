@@ -2,9 +2,13 @@ package notesapp
 
 class Todo extends BaseNote {
 
-    Boolean complete
+    Boolean additional
 
     static constraints = {
-        complete nullable: false
+        additional nullable: false
+    }
+
+    static mapping = {
+        additional column: 'complete'
     }
 }

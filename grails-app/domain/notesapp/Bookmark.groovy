@@ -2,9 +2,9 @@ package notesapp
 
 class Bookmark extends BaseNote {
 
-    String link
+    String additional
 
     static constraints = {
-        link nullable: false
+        additional nullable: false
     }
 }

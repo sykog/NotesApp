@@ -2,9 +2,9 @@ package notesapp
 
 class Codeblock extends BaseNote {
 
-    String language
+    String additional
 
     static constraints = {
-        language nullable: false
+        additional nullable: false
     }
 }
