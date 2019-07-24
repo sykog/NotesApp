@@ -12,8 +12,7 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <g:each in="${notes}" var="note">
-                <div class="${note.class}">
-                    <p>${note.id}</p>
+                <div class="${note.class.toString().minus("class notesapp.")}">
                     <p>${note.content}</p>
                     <p>${note.lastUpdated}</p>
                     <g:if test="${note.class.toString() != 'class notesapp.Note'}">
@@ -23,7 +22,7 @@
             </g:each>
 
             <div class="pagination">
-                <g:paginate total="${baseNoteCount ?: 0}" />
+                <g:paginate total="${noteCount ?: 0}" />
             </div>
         </div>
     </body>
