@@ -3,19 +3,10 @@
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'notes.label', default: 'BaseNote')}" />
-        <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <title>Edit Note</title>
     </head>
     <body>
-        <a href="#edit-baseNote" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="edit-baseNote" class="content scaffold-edit" role="main">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+        <div class="container" role="main">
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -26,15 +17,23 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.baseNote}" method="PUT">
-                <g:hiddenField name="version" value="${this.baseNote?.version}" />
-                <fieldset class="form">
-                    <f:all bean="baseNote"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
+
+            <g:form action="update" method="post">
+                <div class="${note.class.toString().minus("class notesapp.").toLowerCase()}">
+                    <g:textArea name="content" value="${note.content}" rows="8" cols="80"/>
+                    <g:if test="${note.class.toString() != 'class notesapp.Note'}">
+                        <g:if test="${note.class.toString() == 'class notesapp.Todo'}">
+                            <g:hiddenField name="additional" value="false" />
+                        </g:if>
+                        <g:else>
+                            <g:textField name="additional" value="${note.additional}" />
+                        </g:else>
+                    </g:if>
+                    <g:hiddenField name="id" value="${note.id}" />
+                    <g:submitButton name="update" value="Update" />
+                </div>
             </g:form>
+
         </div>
     </body>
 </html>

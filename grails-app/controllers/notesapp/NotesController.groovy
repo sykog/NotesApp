@@ -7,7 +7,7 @@ class NotesController {
 
     NoteService noteService
 
-    //static allowedMethods = [save: "POST", update: "PUT", delete: "post"]
+    static allowedMethods = [update: "post", delete: "post"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -20,92 +20,26 @@ class NotesController {
         ])
     }
 
+    def edit() {
+        def note = noteService.getNote(params.id as int)
+
+        respond ([
+            view: 'edit',
+            note: note
+        ])
+    }
+
+    def update() {
+        def String content = params.content
+        def String additional = ""
+        if (params.additional) additional = params.additional
+
+        flash.message = noteService.updateNote(params.id as int, content, additional)
+        redirect(controller: "notes")
+    }
+
     def delete() {
         flash.message = noteService.deleteNote(params.id as int)
         redirect(controller: "notes")
     }
-
-    /*def show(Long id) {
-        respond noteService.get(id)
-    }
-
-    def create() {
-        //respond new BaseNote(params)
-    }
-
-    def save(BaseNote baseNote) {
-        if (baseNote == null) {
-            notFound()
-            return
-        }
-
-        try {
-            noteService.save(baseNote)
-        } catch (ValidationException e) {
-            respond baseNote.errors, view:'create'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'notes.label', default: 'BaseNote'), baseNote.id])
-                redirect baseNote
-            }
-            '*' { respond baseNote, [status: CREATED] }
-        }
-    }
-
-    def edit(Long id) {
-        respond noteService.get(id)
-    }
-
-    def update(BaseNote baseNote) {
-        if (baseNote == null) {
-            notFound()
-            return
-        }
-
-        try {
-            noteService.save(baseNote)
-        } catch (ValidationException e) {
-            respond baseNote.errors, view:'edit'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'notes.label', default: 'BaseNote'), baseNote.id])
-                redirect baseNote
-            }
-            '*'{ respond baseNote, [status: OK] }
-        }
-    }
-
-    def delete(Long id) {
-        if (id == null) {
-            flash.message = "no"
-            //notFound()
-            return
-        }
-
-        noteService.delete(id)
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'notes.label', default: 'BaseNote'), id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'notes.label', default: 'BaseNote'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }*/
 }

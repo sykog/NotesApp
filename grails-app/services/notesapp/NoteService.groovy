@@ -5,21 +5,21 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class NoteService {
 
+    BaseNote getNote(int id) {
+        return BaseNote.get(id)
+    }
+
     ArrayList<BaseNote> getAllNotes() {
         return BaseNote.listOrderByLastUpdated()
     }
 
     ArrayList<BaseNote> getNotesByType(String noteType) {
         switch (noteType) {
-            case 'sites': return Bookmark.listOrderByLastUpdated()
-                break
-            case 'code': return Codeblock.listOrderByLastUpdated()
-                break
-            case 'quotes': return Quote.listOrderByLastUpdated()
-                break
-            case 'todos': return Todo.listOrderByLastUpdated()
-                break
-            default: return Note.listOrderByLastUpdated()
+            case 'sites': return Bookmark.listOrderByLastUpdated(order: "desc")
+            case 'code': return Codeblock.listOrderByLastUpdated(order: "desc")
+            case 'quotes': return Quote.listOrderByLastUpdated(order: "desc")
+            case 'todos': return Todo.listOrderByLastUpdated(order: "desc")
+            default: return Note.listOrderByLastUpdated(order: "desc")
         }
     }
 
@@ -30,7 +30,23 @@ class NoteService {
         return noteType + " Deleted"
     }
 
-    BaseNote getById(Serializable id) {
-        return null
+    String updateNote(int id, String content, String additional) {
+        BaseNote note = BaseNote.get(id)
+        String noteType = note.class.toString().minus('class notesapp.')
+
+        switch (noteType) {
+            case 'Note': note.content = content
+                break
+            case 'Todo':
+                note.content = content
+                note.additional = false
+                break
+            default:
+                note.content = content
+                note.additional = additional
+        }
+
+        note.save(flush: true)
+        return noteType + " Updated"
     }
 }
