@@ -7,7 +7,7 @@ class NotesController {
 
     NoteService noteService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    //static allowedMethods = [save: "POST", update: "PUT", delete: "post"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -16,8 +16,13 @@ class NotesController {
 
         respond([
             notes: notes,
-            noteCount: notes.count()
+            noteCount: notes.size()
         ])
+    }
+
+    def delete() {
+        flash.message = noteService.deleteNote(params.id as int)
+        redirect(controller: "notes")
     }
 
     /*def show(Long id) {
@@ -78,7 +83,8 @@ class NotesController {
 
     def delete(Long id) {
         if (id == null) {
-            notFound()
+            flash.message = "no"
+            //notFound()
             return
         }
 

@@ -6,11 +6,11 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div id="list-baseNote" class="content scaffold-list" role="main">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+        <div class="container" role="main">
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
+
             <g:each in="${notes}" var="note">
                 <div class="${note.class.toString().minus("class notesapp.")}">
                     <p>${note.content}</p>
@@ -18,6 +18,9 @@
                     <g:if test="${note.class.toString() != 'class notesapp.Note'}">
                         <p>${note.additional}</p>
                     </g:if>
+                    <g:link action="delete" params="${[id: note.id]}" onclick="
+                        return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');
+                    ">Delete</g:link>
                 </div>
             </g:each>
 
