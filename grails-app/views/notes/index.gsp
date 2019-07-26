@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'notes.label', default: 'BaseNote')}" />
         <title>Notes</title>
     </head>
     <body>
@@ -20,7 +19,7 @@
                     </g:if>
                     <g:link action="edit" params="${[id: note.id]}">Edit</g:link>
                     <g:link action="delete" params="${[id: note.id]}" onclick="
-                    return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');
+                    return confirm('Are you sure?');
                 ">Delete</g:link>
                 </div>
             </g:each>

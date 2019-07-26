@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'notes.label', default: 'BaseNote')}" />
         <title>Edit Note</title>
     </head>
     <body>
@@ -33,7 +32,6 @@
                     <g:submitButton name="update" value="Update" />
                 </div>
             </g:form>
-
         </div>
     </body>
 </html>

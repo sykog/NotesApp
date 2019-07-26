@@ -23,7 +23,7 @@
             <a class="navbar-brand" href="/notes?filter=todos">To-Do</a>
             <a class="navbar-brand" href="/notes?filter=quotes">Quotes</a>
             <a class="navbar-brand" href="/notes?filter=code">Code</a>
-            <a class="navbar-brand" href="/notes?filter=sites">Website</a>
+            <a class="navbar-brand" href="/notes?filter=sites">Websites</a>
         </div>
         <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
             <ul class="nav navbar-nav navbar-right">
