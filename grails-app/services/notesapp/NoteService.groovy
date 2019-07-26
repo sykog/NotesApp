@@ -62,4 +62,12 @@ class NoteService {
 
         return noteType + " Deleted"
     }
+
+    String markTodoCompletion(int id) {
+        Todo todo = Todo.get(id)
+        todo.additional = !todo.additional
+
+        if (todo.additional) return "Todo Completed!"
+        else return "Todo Marked Incomplete"
+    }
 }

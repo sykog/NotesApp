@@ -42,4 +42,9 @@ class NotesController {
         flash.message = noteService.deleteNote(params.id as int)
         redirect(controller: "notes")
     }
+
+    def todo() {
+        flash.message = noteService.markTodoCompletion(params.id as int)
+        redirect(controller: "notes")
+    }
 }
