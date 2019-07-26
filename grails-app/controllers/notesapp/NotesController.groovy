@@ -14,7 +14,7 @@ class NotesController {
         def notes = noteService.getAllNotes()
         if (params.filter) notes = noteService.getNotesByType(params.filter)
 
-        respond([notes: notes, noteCount: notes.size()])
+        respond([notes: notes])
     }
 
     def edit() {

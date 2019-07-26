@@ -39,10 +39,6 @@
                 ">Delete</g:link>
                 </div>
             </g:each>
-
-            <div class="pagination">
-                <g:paginate total="${noteCount ?: 0}" />
-            </div>
         </div>
     </body>
 </html>
