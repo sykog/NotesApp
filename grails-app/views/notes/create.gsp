@@ -20,7 +20,7 @@
 
     <g:form controller="notes" action="create" method="post">
         <div class="addNote">
-            <select name="noteType">
+            <select id="noteType" name="noteType">
                 <option value="note">Note</option>
                 <option value="todo">To-do</option>
                 <option value="code">Code</option>
@@ -32,5 +32,13 @@
             <g:submitButton name="create" value="Add Note"/>
         </div>
     </g:form>
+
+    <script>
+        const noteType = document.getElementById("noteType");
+        noteType.onclick = () => {
+           noteType.value === "code" ? document.getElementById("content").style.fontFamily = "monospace" :
+               document.getElementById("content").style.fontFamily = "Verdana, sans-serif";
+        }
+    </script>
     </body>
 </html>

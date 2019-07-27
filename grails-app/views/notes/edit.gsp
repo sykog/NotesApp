@@ -19,7 +19,15 @@
 
             <g:form action="update" method="post">
                 <div class="${note.class.toString().minus("class notesapp.").toLowerCase()}">
-                    <g:textArea name="content" value="${note.content}" rows="8" cols="80"/>
+
+                    <g:if test="${note.class.toString() == 'class notesapp.Codeblock'}">
+                        <g:textArea name="content" value="${note.content}" rows="8" style="font-family: monospace"/>
+                    </g:if>
+                    <g:else>
+                        <g:textArea name="content" value="${note.content}" rows="8"/>
+                    </g:else>
+
+
                     <g:if test="${note.class.toString() != 'class notesapp.Note'}">
                         <g:if test="${note.class.toString() == 'class notesapp.Todo'}">
                             <g:hiddenField name="additional" value="false" />
