@@ -27,6 +27,28 @@
         <a class="navbar-brand" href="/notes?filter=sites">Websites</a>
     </div>
 </div>
+
+<script>
+    window.onload = () => {
+        if (window.location.pathname === "/notes") {
+            const navItems = document.querySelectorAll("a.navbar-brand");
+
+            if (window.location.href.includes("filter=notes")) {
+                navItems[2].className = "navbar-brand selected";
+            } else if (window.location.href.includes("filter=todos")) {
+                navItems[3].className = "navbar-brand selected";
+            } else if (window.location.href.includes("filter=quotes")) {
+                navItems[4].className = "navbar-brand selected";
+            } else if (window.location.href.includes("filter=code")) {
+                navItems[5].className = "navbar-brand selected";
+            } else if (window.location.href.includes("filter=sites")) {
+                navItems[6].className = "navbar-brand selected";
+            } else {
+                navItems[1].className = "navbar-brand selected";
+            }
+        }
+    }
+</script>
 <g:layoutBody/>
 </body>
 </html>

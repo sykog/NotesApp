@@ -59,7 +59,8 @@ div.navbar {
     top: 0;
     display: flex;
     box-sizing: border-box;
-    background: linear-gradient(180deg, #373737 90%, #b1e4ea 100%);
+    background-color: #373737;
+    border-bottom: 2px solid #b1e4ea;
 }
 
 div.navbar-header {
@@ -88,8 +89,9 @@ a.navbar-brand:hover {
     background: linear-gradient(#3d76c9, #255286);
 }
 
-a.navbar-brand:selected {
+a.navbar-brand.selected {
     background: linear-gradient(#583aab, #342266);
+    border: 2px solid rgba(209, 157, 234, 0.6);
 }
 
 a.navbar-brand.add-note {
@@ -97,10 +99,42 @@ a.navbar-brand.add-note {
     background: linear-gradient(#20d900, #009913);
     border: 2px solid rgba(45, 211, 0, 0.6);
     border-radius: 20px;
+    padding: 4px 10px;
 }
 
 a.navbar-brand.add-note:hover {
     background: linear-gradient(#24f100, #00b016);
+}
+
+@media (max-width: 610px) {
+    a.navbar-brand {
+        padding: 4px 4px;
+    }
+}
+
+@media (max-width: 528px) {
+    body {
+        padding-top: 110px;
+    }
+
+    div.navbar-default {
+        height: 100px;
+        background-color:
+    }
+
+    div.navbar-header {
+        margin: 0px auto;
+    }
+}
+
+@media (max-width: 435px) {
+    div.navbar-default {
+        padding: 0;
+    }
+
+    a.navbar-brand {
+        font-size: .6em;
+    }
 }
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */
