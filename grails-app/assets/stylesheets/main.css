@@ -2,15 +2,8 @@
 
 html {
     background-color: #ddd;
-    background-image: -moz-linear-gradient(center top, #aaa, #ddd);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
-    background-image: linear-gradient(to bottom, #aaa, #ddd);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
     background-repeat: no-repeat;
     height: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 html * {
@@ -24,7 +17,6 @@ body {
     color: #f7f9fa;
     overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
     background-color: #44494b;
-    background-image: -moz-linear-gradient(center top, #44494b, #5c6265);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #44494b), color-stop(1, #5c6265));
     background-image: linear-gradient(to bottom, #44494b, #5c6265);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#44494b', EndColorStr = '#5c6265');
@@ -36,18 +28,7 @@ body {
 }
 
 body, select {
-    font-family: "Arial Black", "Lucida Grande", sans-serif;
-}
-
-.spinner {
-    background: url(spinner.gif) 50% 50% no-repeat transparent;
-    height: 16px;
-    width: 16px;
-    padding: 0.5em;
-    position: absolute;
-    right: 0;
-    top: 0;
-    text-indent: -9999px;
+    font-family: "Arial Black", sans-serif;
 }
 
 /* Navbar Styles */
@@ -73,7 +54,6 @@ div.navbar-header {
 div.navbar-header.add-note {
     border-radius: 25px;
 }
-
 
 a.navbar-brand {
     font-size: .8em;
@@ -119,7 +99,6 @@ a.navbar-brand.add-note:hover {
 
     div.navbar-default {
         height: 100px;
-        background-color:
     }
 
     div.navbar-header {
@@ -137,93 +116,49 @@ a.navbar-brand.add-note:hover {
     }
 }
 
-/* CREATE/EDIT FORMS AND SHOW PAGES */
-
-fieldset,
-.property-list {
-    margin: 0.6em 1.25em 0 1.25em;
-    padding: 0.3em 1.8em 1.25em;
-    position: relative;
-    zoom: 1;
-    border: none;
-}
-
-.property-list .fieldcontain {
-    list-style: none;
-    overflow: hidden;
-    zoom: 1;
-}
-
-.fieldcontain {
-    margin-top: 1em;
-}
-
-.fieldcontain label,
-.fieldcontain .property-label {
-    color: #666666;
-    text-align: right;
-    width: 25%;
-}
-
-.fieldcontain .property-label {
-    float: left;
-}
-
-.fieldcontain .property-value {
-    display: block;
-    margin-left: 27%;
-}
-
-label {
-    cursor: pointer;
-    display: inline-block;
-    margin: 0 0.25em 0 0;
-}
+/* Form Styles */
 
 input, select, textarea {
-    background-color: #fcfcfc;
-    border: 1px solid #cccccc;
-    font-size: 1em;
-    padding: 0.2em 0.4em;
+    font-family: "Verdana", sans-serif;
+    margin: 6px 10px;
+    background-color: #c6e5ea;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 4px 10px;
 }
 
-select {
-    padding: 0.2em 0.2em 0.2em 0;
-}
-
-select[multiple] {
-    vertical-align: top;
-}
-
-textarea {
-    width: 250px;
-    height: 150px;
+textarea, input {
+    width: calc(100% - 20px);
+    max-width: 1000px;
     overflow: auto; /* IE always renders vertical scrollbar without this */
     vertical-align: top;
 }
 
-input[type=checkbox], input[type=radio] {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
+select option {
+    background-color: #373737;
 }
 
-input:focus, select:focus, textarea:focus {
-    background-color: #ffffff;
-    border: 1px solid #eeeeee;
-    outline: 0;
-    -moz-box-shadow: 0 0 0.5em #ffffff;
-    -webkit-box-shadow: 0 0 0.5em #ffffff;
-    box-shadow: 0 0 0.5em #ffffff;
+textarea:focus, input:focus {
+    border: 2px solid white;
+    outline: none;
 }
 
-.required-indicator {
-    color: #cc0000;
-    display: inline-block;
-    font-weight: bold;
-    margin-left: 0.3em;
-    position: relative;
-    top: 0.1em;
+input#create, input#update, select {
+    font-family: "Arial Black", sans-serif;
+    display: block;
+    color: white;
+    width: max-content;
+    margin: 10px 14px;
+    padding: 4px 10px;
+    background: linear-gradient(#395cab, #223768);
+    border: 2px solid rgba(126, 188, 234, .6);
+    border-radius: 4px;
+    box-shadow: 0 0 0 4px black;
+}
+
+input#create:hover, input#update:hover, select:hover {
+    background: linear-gradient(#3d76c9, #255286);
+    cursor: pointer;
 }
 
 /* Messages and errors */
@@ -257,15 +192,4 @@ input:focus, select:focus, textarea:focus {
 .errors ul,
 .message {
     padding: 0;
-}
-
-.errors li {
-    list-style: none;
-    background: transparent url(skin/exclamation.png) 0.5em 50% no-repeat;
-    text-indent: 2.2em;
-}
-
-.message {
-    background: transparent url(skin/information.png) 0.5em 50% no-repeat;
-    text-indent: 2.2em;
 }
