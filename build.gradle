@@ -69,7 +69,6 @@ dependencies {
     testCompile "org.seleniumhq.selenium:selenium-remote-driver:3.14.0"
     testCompile "org.seleniumhq.selenium:selenium-api:3.14.0"
     testCompile "org.seleniumhq.selenium:selenium-support:3.14.0"
-    //testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
 }
 
@@ -85,7 +84,6 @@ bootRun {
 }
 
 webdriverBinaries {
-    //chromedriver '2.46.0'
     geckodriver '0.24.0'
 }
 
