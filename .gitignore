@@ -11,4 +11,5 @@ out/
 .settings
 .classpath
 grails-app/conf/
+build.gradle
 prodDb.mv.db
