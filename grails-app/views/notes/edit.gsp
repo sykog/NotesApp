@@ -21,10 +21,10 @@
                 <div class="${note.class.toString().minus("class notesapp.").toLowerCase()}">
 
                     <g:if test="${note.class.toString() == 'class notesapp.Codeblock'}">
-                        <g:textArea name="content" value="${note.content}" rows="8" style="font-family: monospace"/>
+                        <g:textArea name="content" value="${note.content}" rows="8" style="font-family: monospace" maxlength="500"/>
                     </g:if>
                     <g:else>
-                        <g:textArea name="content" value="${note.content}" rows="8"/>
+                        <g:textArea name="content" value="${note.content}" rows="8" maxlength="500"/>
                     </g:else>
 
 

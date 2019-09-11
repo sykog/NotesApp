@@ -7,6 +7,6 @@ abstract class BaseNote {
     Date lastUpdated
 
     static constraints = {
-        content nullable:false
+        content(nullable:false, maxSize: 500)
     }
 }

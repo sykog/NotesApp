@@ -27,7 +27,7 @@
                 <option value="quote">Quote</option>
                 <option value="site">Website</option>
             </select>
-            <g:textArea name="content" rows="8" cols="80"/>
+            <g:textArea name="content" rows="8" cols="80" maxlength="500"/>
             <g:textField id="additional" name="additional"/>
             <g:submitButton name="create" value="Add Note"/>
         </div>

@@ -54,5 +54,7 @@ a.delete:hover {
     background-color: #b1e4ea;
     color: black;
     font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     padding: 4px;
 }
