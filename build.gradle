@@ -15,7 +15,7 @@ group "notesapp"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
-apply plugin:"war"
+//apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"com.github.erdi.webdriver-binaries"
 apply plugin:"org.grails.grails-gsp"
@@ -69,6 +69,7 @@ dependencies {
     testCompile "org.seleniumhq.selenium:selenium-remote-driver:3.14.0"
     testCompile "org.seleniumhq.selenium:selenium-api:3.14.0"
     testCompile "org.seleniumhq.selenium:selenium-support:3.14.0"
+    //testCompile "io.micronaut:micronaut-http-client:$micronautVersion"
     //testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
 }
