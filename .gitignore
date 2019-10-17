@@ -13,3 +13,4 @@ out/
 grails-app/conf/
 build.gradle
 prodDb.mv.db
+externalDB.properties
